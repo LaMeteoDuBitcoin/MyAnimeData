@@ -2,7 +2,7 @@ from pathlib import Path
 
 import streamlit as st
 
-logo_path = Path(__file__).resolve().parents[1] / "design" / "aniviz-logo-proposal.svg"
+logo_path = Path(__file__).resolve().parents[1] / "design" / "aniviz-logo.svg"
 st.image(str(logo_path), width=300)
 
 st.caption("ANIVIZ  ·  CARNET DE VISIONNAGE")

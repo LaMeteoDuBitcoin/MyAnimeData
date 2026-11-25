@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
-logo_path = Path(__file__).resolve().parent / "design" / "aniviz-logo-proposal.svg"
+logo_path = Path(__file__).resolve().parent / "design" / "aniviz-logo.svg"
 st.sidebar.image(str(logo_path), width=220)
 
 accueil_page = st.Page(

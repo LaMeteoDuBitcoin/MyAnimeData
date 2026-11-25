@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 128" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">AniViz</title>
+  <desc id="logo-description">Logo AniViz : un monogramme AV angulaire accompagné de traits de mouvement inspirés du manga.</desc>
+  <g aria-hidden="true">
+    <path d="M28 6h72l22 22v72l-22 22H28L6 100V28Z" fill="#394266"/>
+    <path d="M20 30h18M16 39h13" fill="none" stroke="#E6B85C" stroke-width="3" stroke-linecap="round"/>
+    <path d="m28 94 20-55 20 55M36 74h24M73 44l16 49 16-49" fill="none" stroke="#F6F1E7" stroke-width="8" stroke-linecap="square" stroke-linejoin="round"/>
+    <path d="m107 24 2.6 6.8 7.2 2.6-7.2 2.6-2.6 7.2-2.6-7.2-6.8-2.6 6.8-2.6Z" fill="#E6B85C" stroke="#292723" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <text x="151" y="82" fill="#292723" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700" letter-spacing="-2">Ani</text>
+  <text x="235" y="82" fill="#394266" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700" letter-spacing="-2">Viz</text>
+</svg>
