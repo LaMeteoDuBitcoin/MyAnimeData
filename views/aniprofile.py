@@ -8,19 +8,32 @@ from services.mal_api import (
 )
 
 
+st.caption("01  ·  PROFIL")
 st.title("Mon profil AniViz")
 st.markdown(
     "Saisissez un nom d'utilisateur MyAnimeList dont l'anime list est publique."
 )
 
 saved_username = st.session_state.get("mal_username", "")
-with st.form("mal_username_form"):
-    username_input = st.text_input(
-        "Nom d'utilisateur MyAnimeList",
-        value=saved_username,
-        placeholder="ex. votre_nom",
-    )
-    submitted = st.form_submit_button("Analyser mon profil")
+form_column, note_column = st.columns([1.4, 1], gap="large")
+with form_column:
+    with st.container(border=True):
+        with st.form("mal_username_form"):
+            username_input = st.text_input(
+                "Nom d'utilisateur MyAnimeList",
+                value=saved_username,
+                placeholder="ex. votre_nom",
+            )
+            submitted = st.form_submit_button("Analyser mon profil")
+
+with note_column:
+    with st.container(border=True):
+        st.subheader("Votre liste reste la source")
+        st.write(
+            "AniViz lit les informations publiques de votre anime list. "
+            "Aucune donnée de visionnage n'est inventée."
+        )
+        st.caption("Le profil MAL doit être public.")
 
 if submitted:
     username = username_input.strip()
@@ -34,8 +47,15 @@ if not username:
     st.info("Entrez un nom d'utilisateur ci-dessus pour charger son anime list.")
     st.stop()
 
-if st.button("Actualiser les données MAL", help="Ignore le cache et recharge la liste."):
-    get_user_anime_list.clear()
+refresh_column, cache_column = st.columns([1, 2])
+with refresh_column:
+    if st.button(
+        "Actualiser les données MAL",
+        help="Ignore le cache et recharge la liste.",
+    ):
+        get_user_anime_list.clear()
+with cache_column:
+    st.caption("Les données sont mises en cache pendant une heure.")
 
 try:
     client_id = get_mal_client_id()
@@ -48,7 +68,6 @@ except MALAPIError as exc:
 anime_df = build_anime_dataframe(entries)
 summary = summarize_anime_list(anime_df)
 st.subheader(f"Anime list de {username}")
-st.caption("Les données sont mises en cache pendant une heure.")
 
 metrics = st.columns(4)
 metrics[0].metric("Anime dans la liste", summary["total_anime"])
