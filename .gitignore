@@ -1,3 +1,4 @@
 .venv
 test.ipynb
 temp-plot.html
+.streamlit/secrets.toml
